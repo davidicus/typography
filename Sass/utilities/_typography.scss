@@ -1,0 +1,111 @@
+//mixins
+@mixin bp($bp, $min-max: min-width) {
+    $em: $bp/16;
+    @media(#{$min-max}: #{$em}em) {
+        @content;
+    }
+}
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,800,400');
+
+//font-family
+$open: 'Open Sans', sans-serif; 
+
+//font weights:
+$thin: 300;
+$normal: 400;
+$bold: 800;
+
+//typography variables
+
+$font-family: $open;
+$base-font-size: 16px;
+
+//typography
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: $open;
+    font-size: 100%;
+    font-weight: $normal;
+    line-height: 1.5; 
+    text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, strong { 
+    font-weight: $bold; 
+    margin: 0;
+}
+
+
+h1 { 
+    font-size: 3em;
+    line-height: 1; 
+    margin-bottom: 0.5em;
+    
+    @include bp(600, max-width) {
+        font-size: 1.5em;
+        margin-bottom: 1em;
+        
+    }
+
+    &.small {
+        font-size: 1.3125em;
+        line-height: 1.142857142;
+        margin-bottom: 1.142857142em;
+    }
+}
+
+h2 {
+    font-size: 2.25em;
+    line-height: 1.333333333; 
+    margin-bottom: 0.666666666em;
+    
+    @include bp(600, max-width) {
+        font-size: 1.3125em;
+        line-height: 1.142857142;
+        margin-bottom: 1.142857142em;
+        
+    }
+
+    &.small {
+        font-size: 1.125em;
+        line-height: 1.333333333;
+        margin-bottom: 1.333333333em;
+    }
+}
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1;
+    margin-bottom: 1em;
+    
+    @include bp(600, max-width) {
+        font-size: 1.125em;
+        line-height: 1.333333333;
+        margin-bottom: 1.333333333em;
+        
+    }
+
+    &.small {
+        font-size: 1em;
+        line-height: 1.5;
+        margin-bottom: 1.5em;
+    }
+}
+
+p, ul { 
+    font-size: 1em;
+    margin-bottom: 1.5em;
+    
+    @include bp(600, max-width) {
+        font-size: 0.667em;
+        line-height: 2.25em;
+        margin-bottom: 2.25em;
+        
+    }
+    
+}
+
